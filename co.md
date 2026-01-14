@@ -2,36 +2,38 @@
 from machine import UART, Pin
 import time
 
-# 1. 전원 제어 설정 (GP2)
-power_en = Pin(2, Pin.OUT)
-power_en.value(1) 
+def init_co_sensor():
+    uart = UART(0, baudrate=9600, tx=Pin(16), rx=Pin(17))
+    print("ZE07-CO 센서 초기화")
+    time.sleep(3)
+    return uart
 
-# 2. UART 설정 변경
-# 하드웨어 UART0 대신 핀을 유연하게 할당하기 위해 
-# 구버전에서는 UART(0, ...), 최신 펌웨어에서는 명시적 핀 지정을 사용합니다.
-# 만약 여전히 에러가 난다면 UART 번호를 1로 바꿔보거나 아래 형식을 시도하세요.
-try:
-    # GP11을 TX로, GP12를 RX로 사용하는 UART1 설정
-    uart = UART(1, baudrate=9600, tx=Pin(11), rx=Pin(12))
-except ValueError:
-    # 하드웨어 제약으로 실패할 경우를 대비한 대체 코드 (Pico 펌웨어 버전에 따라 다름)
-    uart = UART(0, baudrate=9600, tx=Pin(12), rx=Pin(13)) # 회로 수정이 필요할 수 있음
-    print("UART 설정 오류: 핀 연결을 다시 확인해주세요.")
-
-def get_co_ppm():
+def read_co_ppm(uart):
     if uart.any():
         data = uart.read(9)
-        if data and len(data) == 9 and data[0] == 0xFF and data[1] == 0x04:
-            checksum = (~(data[1] + data[2] + data[3] + data[4] + data[5] + data[6] + data[7]) & 0xFF) + 1
-            if checksum == data[8]:
-                return (data[2] * 256) + data[3]
+        if (len(data) == 9 and data[0] == 0xFF and 
+            data[1] == 0x04 and data[8] == ((~sum(data[1:8]) + 1) % 256)):
+            return ((data[3] << 8) | data[4]) / 10.0
     return None
 
-print("ZE07-CO 센서 읽기 시작...")
+# 메인 루프
+uart = init_co_sensor()
+last_ppm = 0
 
-while True:
-    co_value = get_co_ppm()
-    if co_value is not None:
-        print(f"현재 CO 농도: {co_value} ppm")
-    time.sleep(1)
+print("CO 모니터링 시작 (Ctrl+C 중단)")
+try:
+    while True:
+        ppm = read_co_ppm(uart)
+        if ppm is not None:  # None 체크 추가!
+            if ppm != last_ppm:
+                print(f"CO: {ppm:.1f} ppm")
+                last_ppm = ppm
+            
+            if ppm > 50:  # ppm이 None이 아닌 상태에서만 비교
+                print("*** CO 경고: 환기 필요 ***")
+        
+        time.sleep_ms(1000)
+except KeyboardInterrupt:
+    print("모니터링 중단")
+
 ```
