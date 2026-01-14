@@ -1,17 +1,10 @@
+```
 >>> %Run -c $EDITOR_CONTENT
 
 MPY: soft reboot
 --- ZE07-CO 테스트 모드 ---
 초를 끄고 연기를 센서 근처에 가져가 보세요.
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
-CO 농도:   0.5 PPM | Raw: 00 05
+
 CO 농도:   0.5 PPM | Raw: 00 05
 CO 농도:   0.5 PPM | Raw: 00 05
 CO 농도:   2.4 PPM | Raw: 00 18
@@ -31,3 +24,4 @@ CO 농도:  20.2 PPM | Raw: 00 ca
 CO 농도:  18.6 PPM | Raw: 00 ba
 CO 농도:  17.0 PPM | Raw: 00 aa
 
+```
