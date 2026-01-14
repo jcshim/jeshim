@@ -43,3 +43,7 @@
 ```text
 Raspberry Pi Pico W TX (GP12, Pin 16)  <->  ZE07-CO RXD (Pin 7)
 Raspberry Pi Pico W RX (GP13, Pin 17)  <->  ZE07-CO TXD (Pin 8)
+
+## CO 농도 기준
+
+<img width="691" height="288" alt="image" src="https://github.com/user-attachments/assets/44b68304-67c9-4e66-876d-c73f2f7000a8" />
