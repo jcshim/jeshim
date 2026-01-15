@@ -2,7 +2,7 @@
 Jooeun Shim, Air Quality Module
 
 <img width="1024" height="747" alt="image" src="https://github.com/user-attachments/assets/05b509ce-eab8-41f5-9c4e-9f67ec35eee9" />
-[리셋버튼 흰색]
+[리셋버튼] 중앙 윗쪽 부분 Pico-W 위에 있는 흰색 버튼]
 <img width="1024" height="747" alt="image" src="https://github.com/user-attachments/assets/4ff7faad-7eb6-4086-8ac6-9195c8c09cd7" />
 
 [RaspberryPi pico-W Data Sheet](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
