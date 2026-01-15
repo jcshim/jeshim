@@ -1,3 +1,14 @@
+# PC에서 wifi로 접속하여 테스트 하려면
+## Thonny에서
+```
+1. 코드를 복사 및 공유기 이름 바꾸고, 비번 넣기
+SSID = 'shim'
+PASSWORD = 'shimshim'
+2. 실행
+예) 접속 주소: 192.168.0.33 가 나오면
+```
+## PC 웹 브라우저에 링크를 복사하여 붙여 넣기
+
 ```
 import network
 import socket
