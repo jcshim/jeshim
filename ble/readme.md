@@ -1,3 +1,8 @@
+## App Inventor <- BLE -> Pico-W
+
+### Import extension: BluetoothLE 
+
+
 <img width="757" height="282" alt="image" src="https://github.com/user-attachments/assets/aab1af06-27ec-4bac-bc7a-ba954c42f7b9" />
 
 ```
@@ -9,3 +14,4 @@ _WRITE_CHAR_UUID = bluetooth.UUID("00002A6E-0000-1000-8000-00805F9B34FB")
 _READ_CHAR_UUID = bluetooth.UUID("00002A6F-0000-1000-8000-00805F9B34FB")
 ```
 
+<img width="533" height="210" alt="image" src="https://github.com/user-attachments/assets/32550b5d-cbd6-4209-8e7d-1471fd1722d8" />
