@@ -7,9 +7,7 @@ Pico 2 W는 최근 출시된 **RP2350** 칩셋을 탑재하여, 기존 Pico W(RP
 | 구분 | Raspberry Pi Pico W | Raspberry Pi Pico 2 W |
 | --- | --- | --- |
 | **메인 칩셋** | **RP2040** | **RP2350** |
-| **CPU 코어** | Dual-core Arm Cortex-M0+ | **Dual-core Arm Cortex-M33**<br>
-
-<br>(또는 RISC-V Hazard3 선택 가능) |
+| **CPU 코어** | Dual-core Arm Cortex-M0+ | **M33** or Hazard3 선택 가능 |
 | **클럭 속도** | 133 MHz | **150 MHz** |
 | **SRAM (메모리)** | 264 KB | **520 KB** (약 2배) |
 | **Flash 메모리** | 2 MB | **4 MB** (약 2배) |
